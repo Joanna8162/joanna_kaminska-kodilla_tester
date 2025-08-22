@@ -3,32 +3,32 @@ package com.kodilla.basic_assertion;
 public class Application {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        int a = 5;
-        int b = 8;
-        int sumResult = calculator.sum(a, b);
-        boolean correct = ResultChecker.assertEquals(13, sumResult);
+        double a = 2.5;
+        double b = 1.5;
+        double sumResult = calculator.sum(a, b);
+        boolean correct = ResultChecker.assertEquals(4, sumResult, 0.0001);
         if (correct) {
             System.out.println("Metoda sum działa poprawnie dla liczb " + a + " i " + b);
         } else {
             System.out.println("Metoda sum nie działa poprawnie dla liczb " + a + " i " + b);
         }
 
-        int subtractResult = calculator.subtract(a, b);
+        double subtractResult = calculator.subtract(a, b);
 
-        boolean correctSubstract = ResultChecker.assertEquals(-3, subtractResult);
-        if (correctSubstract) {
-            System.out.println("Metoda substract działa poprawnie dla liczb " + a + " i " + b);
+        boolean correctSubtract = ResultChecker.assertEquals(1, subtractResult, 0.0001);
+        if (correctSubtract) {
+            System.out.println("Metoda subtract działa poprawnie dla liczb " + a + " i " + b);
         } else {
-            System.out.println("Metoda substract nie działa poprawnie dla liczb " + a + " i " + b);
+            System.out.println("Metoda subtract nie działa poprawnie dla liczb " + a + " i " + b);
         }
 
-        int squareResult = (int) calculator.squared(a);
+        double squareResult = calculator.square(a);
 
-        boolean correctSquare = ResultChecker.assertEquals(25, squareResult);
+        boolean correctSquare = ResultChecker.assertEquals(6.25, squareResult, 0.0001);
         if (correctSquare) {
             System.out.println("Metoda square działa poprawnie dla liczby " + a);
         } else {
-            System.out.println("Metoda square nie działa poprawnie dla liczb " + a);
+            System.out.println("Metoda square nie działa poprawnie dla liczby " + a);
         }
     }
 }
