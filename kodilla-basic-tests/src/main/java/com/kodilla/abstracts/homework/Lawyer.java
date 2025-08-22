@@ -1,7 +1,6 @@
 package com.kodilla.abstracts.homework;
 
 public class Lawyer extends Job {
-
     public Lawyer() {
         super(8600, "to represent and advise clients on legal matters.");
     }
