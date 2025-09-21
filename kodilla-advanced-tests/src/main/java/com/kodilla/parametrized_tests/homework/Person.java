@@ -11,7 +11,15 @@ public class Person {
     }
 
     public String getBMI() {
+        if (heightInMeters <= 0) {
+            return "Invalid height";
+        }
+        if (weightInKilogram <= 0) {
+            return "Invalid weight";
+        }
+
         double bmi = weightInKilogram / (heightInMeters * heightInMeters);
+
         if (bmi < 15) {
             return "Very severely underweight";
         } else if (bmi < 16) {

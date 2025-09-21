@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.Set;
 
-public class WeatherNotificationServiceTest {
+class WeatherNotificationServiceTest {
 
     WeatherNotificationService service;
     Notification notification;
