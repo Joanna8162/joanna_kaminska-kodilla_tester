@@ -41,7 +41,6 @@ class UserValidatorTestSuite {
     }
 
     @ParameterizedTest
-    // ten test nie przechodzi, bo wykrył błąd – regex akceptuje pusty e-mail, a uważam, że nie powinien.
     @EmptySource
     public void shouldReturnFalseIfEmailIsEmpty(String email) {
         assertFalse(validator.validateEmail(email));
