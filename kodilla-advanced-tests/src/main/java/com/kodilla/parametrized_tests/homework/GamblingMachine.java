@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Set;
 
 
-class GamblingMachine {
+public class GamblingMachine {
 
     public int howManyWins(Set<Integer> userNumbers) throws InvalidNumbersException {
         validateNumbers(userNumbers);

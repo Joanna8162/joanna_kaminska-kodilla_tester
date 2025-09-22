@@ -41,4 +41,20 @@ class GamblingMachineTestSuite {
         Set<Integer> userNumbers = parseNumbers(numbersLine);
         assertDoesNotThrow(() -> gamblingMachine.howManyWins(userNumbers));
     }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/GamblingMachineValidSets.csv", numLinesToSkip = 1)
+    void shouldWorkForValid(String numbersLine) throws InvalidNumbersException {
+        String numbersPart = numbersLine.split(",")[0];
+        Set<Integer> input = parseNumbers(numbersPart);
+        int hits = gamblingMachine.howManyWins(input);
+        assertTrue(hits >= 0 && hits <= 6);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/GamblingMachineInvalidSets.csv", numLinesToSkip = 1)
+    void shouldThrowForInvalid(String numbersLine) {
+        Set<Integer> input = parseNumbers(numbersLine);
+        assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(input));
+    }
 }
