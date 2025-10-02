@@ -2,10 +2,10 @@ package com.kodilla.spring.basic.dependency_injection.homework;
 
 public class ShippingCenter {
 
-    private DeliveryService deliveryService;
-    private NotificationService notificationService;
+    private DeliveryServiceInterface deliveryService;
+    private NotificationServiceInterface notificationService;
 
-    public ShippingCenter(DeliveryService deliveryService, NotificationService notificationService) {
+    public ShippingCenter(DeliveryServiceInterface deliveryService, NotificationServiceInterface notificationService) {
         this.deliveryService = deliveryService;
         this.notificationService = notificationService;
     }
