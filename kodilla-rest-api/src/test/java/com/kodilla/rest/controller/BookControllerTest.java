@@ -42,14 +42,22 @@ class BookControllerTest {
         assertThat(result).hasSize(2);
     }
 
-    @Test
+        @Test
     void shouldAddBook() {
+        // given
+        Mockito.doAnswer(invocation -> {
+            booksList.add(invocation.getArgument(0));
+            return null;
+        }).when(bookServiceMock).addBook(Mockito.any(BookDto.class));
 
         // when
-        bookController.addBook(book1); // Wywołujemy metodę addBook w kontrolerze
+        bookController.addBook(book1);
 
         // then
-        // Weryfikujemy, czy metoda addBook została wywołana raz
         Mockito.verify(bookServiceMock, Mockito.times(1)).addBook(book1);
+
+        // Weryfikujemy, czy książka została dodana do listy
+        assertThat(booksList).contains(book1);
     }
+
 }
