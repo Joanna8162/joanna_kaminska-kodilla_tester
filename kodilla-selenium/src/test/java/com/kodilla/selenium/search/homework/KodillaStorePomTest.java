@@ -3,6 +3,7 @@ package com.kodilla.selenium.search.homework;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -54,6 +55,9 @@ class KodillaStorePomTest {
         List<WebElement> businessList = storePom.searchProduct("Business");
         int result = businessList.size();
         assertEquals(0, result);
+        // Szukamy komunikatu o braku wyników
+        WebElement noResultsMessage = driver.findElement(By.cssSelector("h3.text-center.missing"));
+        assertTrue(noResultsMessage.isDisplayed());
     }
 
     @Test
@@ -68,6 +72,9 @@ class KodillaStorePomTest {
         List<WebElement> powerfulList = storePom.searchProduct("Powerful");
         int result = powerfulList.size();
         assertEquals(0, result);
+        // Szukamy komunikatu o braku wyników
+        WebElement noResultsMessage = driver.findElement(By.cssSelector("h3.text-center.missing"));
+        assertTrue(noResultsMessage.isDisplayed());
     }
 
     @Test
